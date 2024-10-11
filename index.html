@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="sunny weather icon_4490965.png"
+      type="image/x-icon"
+    />
+    <title>Weather App | Get Updated With The Weather Today</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body
+    class="bg-gradient-to-l from-slate-500 from-10% via-blue-400 to-amber-500"
+  >
+    <nav class="flex justify-center">
+      <div id="imgText" class="flex items-center text-white">
+        <img
+          src="—Pngtree—sun logo as an icon_15100335.png"
+          alt=""
+          class="w-14"
+        />
+        <h1 class="text-3xl">Weather App</h1>
+      </div>
+    </nav>
+    <section
+      id="cityForm"
+      class="flex justify-center flex-col items-center text-white"
+    >
+      <h1 class="py-4 text-4xl">Enter Your City:</h1>
+      <input
+        type="text"
+        name="cityName"
+        id="cityName"
+        class="my-5 rounded-2xl p-3 text-black"
+        placeholder="Enter Your City Name:"
+      />
+      <button
+        id="triggerBtn"
+        class="bg-amber-600 p-2 m-2 rounded-xl border-2 border-black"
+      >
+        Check Weather
+      </button>
+    </section>
+    <h1
+      class="text-center mt-5 text-3xl text-clip bg-transparent font-extrabold"
+    >
+      Current Weather :
+    </h1>
+    <section
+      id="weatherSection"
+      class="border border-black rounded-xl flex flex-col m-auto items-center justify-center gap-9 bg-slate-900/50 min-w-96 max-w-xl"
+    >
+      <div id="upWeather">
+        <img
+          src="https://cdn.weatherapi.com/weather/64x64/night/143.png"
+          alt=""
+          id="weatherIcon"
+          class="w-32"
+        />
+        <div id="whiteLine" class="bg-white h-1"></div>
+      </div>
+      <div id="downWeather" class="text-white">
+        <table class="overflow-hidden p-10 max-w-96">
+          <thead class="text-lg">
+            <tr class="border-t border-b rounded-2xl text-2xl text-left">
+              <th class="pr-6 text-left py-2">City Name</th>
+              <th class="pl-6 text-center" id="cityNameDisplay">Karachi</th>
+            </tr>
+            <tr class="border-t border-b rounded-2xl">
+              <th class="text-left pr-6 py-5">Condition</th>
+              <th class="pl-6" id="conditionDisp">Karachi</th>
+            </tr>
+            <tr class="border-t border-b rounded-2xl">
+              <th class="text-left pr-6 py-5">
+                Temperature &deg;C / &deg;F
+                <img
+                  src="assets/thermometer-removebg-preview.png"
+                  alt=""
+                  class="inline w-5"
+                />
+              </th>
+              <th class="pl-6" id="temperatureDisplay">Karachi</th>
+            </tr>
+            <tr class="border-t border-b rounded-2xl">
+              <th class="text-left pr-6 py-5">
+                Feels Like &deg; C
+                <img
+                  src="assets/thermometer-removebg-preview.png"
+                  alt=""
+                  class="inline w-5"
+                />
+              </th>
+              <th class="pl-6" id="feelLikeDisplay">Karachi</th>
+            </tr>
+            <tr class="border-t border-b rounded-2xl">
+              <th class="pr-6 text-left py-5">
+                Humidity
+                <img
+                  src="assets/humidSymbol-removebg-preview.png"
+                  alt=""
+                  class="inline w-10"
+                />
+              </th>
+              <th class="pl-6" id="humidityDisplay">Karachi</th>
+            </tr>
+            <tr class="border-t rounded-2xl">
+              <th class="pr-6 text-left py-5">
+                Wind Speed
+                <img src="assets/wind.png" alt="" class="inline w-9" />
+              </th>
+              <th class="pl-6" id="windDisplay">Karachi</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </section>
+
+    <h1 class="text-center mt-5 text-3xl text-white">Forecast Weather :</h1>
+    <section
+      id="weatherSectionFore"
+      class="border border-black rounded-xl m-auto flex-col items-center justify-center gap-9 bg-slate-900/50 lg:flex-col max-w-3xl px-2"
+    >
+      <div
+        id="forecastMain"
+        class="flex flex-col justify-center items-center border rounded-2xl px-5 my-2"
+      >
+        <div id="upWeather">
+          <img
+            src="https://cdn.weatherapi.com/weather/64x64/night/143.png"
+            alt=""
+            id="weatherIconFore"
+            class="w-32"
+          />
+          <div id="whiteLine" class="bg-white h-1"></div>
+        </div>
+        <div id="downWeather" class="text-white max-w-96">
+          <table class="overflow-hidden p-10 max-w-96">
+            <thead class="text-lg">
+              <tr class="border-b rounded-2xl text-2xl text-left">
+                <th class="pr-6 text-left py-2">Date:</th>
+                <th class="pl-6" id="foreDateDisplay">Karachi</th>
+              </tr>
+              <tr class="border-t border-b rounded-2xl">
+                <th class="text-left pr-6 py-5">Condition</th>
+                <th class="pl-6" id="conditionDispFore">Karachi</th>
+              </tr>
+              <tr class="border-t border-b rounded-2xl">
+                <th class="text-left pr-6 py-5">
+                  Temperature Max / Min
+                  <img
+                    src="assets/thermometer-removebg-preview.png"
+                    alt=""
+                    class="inline w-5"
+                  />
+                </th>
+                <th class="pl-6" id="temperatureDisplayFore">Karachi</th>
+              </tr>
+              <tr class="border-t rounded-2xl">
+                <th class="text-left pr-6 py-5">
+                  Chance Of Rain
+                  <img
+                    src="assets/heavy-rain.png"
+                    alt=""
+                    class="inline pl-2 w-10"
+                  />
+                </th>
+                <th class="pl-6" id="chanceOfRainDisplay">Karachi</th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+      </div>
+      <div id="hourCollect" class="flex flex-wrap justify-center gap-5">
+        <div
+          id="hour1"
+          class="border rounded-2xl text-white font-black max-w-40"
+        >
+          <img
+            src="https://cdn.weatherapi.com/weather/64x64/night/143.png"
+            alt=""
+            class="weatherIconFore max-w-full min-w-full h-44 border-b"
+          />
+          <h2 class="tempHour py-3 text-center">35 / 90</h2>
+          <h3 class="timeFore px-8 pb-8">12:00 A:M</h3>
+        </div>
+        <div
+          id="hour2"
+          class="border rounded-2xl text-white font-black max-w-40"
+        >
+          <img
+            src="https://cdn.weatherapi.com/weather/64x64/night/143.png"
+            alt=""
+            class="weatherIconFore max-w-full min-w-full h-44 border-b"
+          />
+          <h2 class="tempHour py-3 text-center">35 / 90</h2>
+          <h3 id="" class="timeFore px-8 pb-8">12:00 A:M</h3>
+        </div>
+        <div
+          id="hour3"
+          class="border rounded-2xl text-white font-black max-w-40"
+        >
+          <img
+            src="https://cdn.weatherapi.com/weather/64x64/night/143.png"
+            alt=""
+            class="weatherIconFore max-w-full min-w-full h-44 border-b"
+          />
+          <h2 class="tempHour py-3 text-center">35 / 90</h2>
+          <h3 id="" class="timeFore px-8 pb-8">12:00 A:M</h3>
+        </div>
+        <div
+          id="hour4"
+          class="border rounded-2xl text-white font-black max-w-40"
+        >
+          <img
+            src="https://cdn.weatherapi.com/weather/64x64/night/143.png"
+            alt=""
+            class="weatherIconFore max-w-full min-w-full h-44 border-b"
+          />
+          <h2 class="tempHour py-3 text-center">35 / 90</h2>
+          <h3 id="" class="timeFore px-8 pb-8">12:00 A:M</h3>
+        </div>
+        <div
+          id="hour5"
+          class="border rounded-2xl text-white font-black max-w-40"
+        >
+          <img
+            src="https://cdn.weatherapi.com/weather/64x64/night/143.png"
+            alt=""
+            class="weatherIconFore max-w-full min-w-full h-44 border-b"
+          />
+          <h2 class="tempHour py-3 text-center">35 / 90</h2>
+          <h3 id="" class="timeFore px-8 pb-8">12:00 A:M</h3>
+        </div>
+        <div
+          id="hour6"
+          class="border rounded-2xl text-white font-black max-w-40"
+        >
+          <img
+            src="https://cdn.weatherapi.com/weather/64x64/night/143.png"
+            alt=""
+            class="weatherIconFore max-w-full min-w-full h-44 border-b"
+          />
+          <h2 class="tempHour py-3 text-center">35 / 90</h2>
+          <h3 id="" class="timeFore px-8 pb-8">12:00 A:M</h3>
+        </div>
+        <div
+          id="hour7"
+          class="border rounded-2xl text-white font-black max-w-40"
+        >
+          <img
+            src="https://cdn.weatherapi.com/weather/64x64/night/143.png"
+            alt=""
+            class="weatherIconFore max-w-full min-w-full h-44 border-b"
+          />
+          <h2 class="tempHour py-3 text-center">35 / 90</h2>
+          <h3 id="" class="timeFore px-8 pb-8">12:00 A:M</h3>
+        </div>
+        <div
+          id="hour8"
+          class="border rounded-2xl text-white font-black max-w-40"
+        >
+          <img
+            src="https://cdn.weatherapi.com/weather/64x64/night/143.png"
+            alt=""
+            class="weatherIconFore max-w-full min-w-full h-44 border-b"
+          />
+          <h2 class="tempHour py-3 text-center">35 / 90</h2>
+          <h3 id="" class="timeFore px-8 pb-8">12:00 A:M</h3>
+        </div>
+        <div
+          id="hour9"
+          class="border rounded-2xl text-white font-black max-w-40"
+        >
+          <img
+            src="https://cdn.weatherapi.com/weather/64x64/night/143.png"
+            alt=""
+            class="weatherIconFore max-w-full min-w-full h-44 border-b"
+          />
+          <h2 class="tempHour py-3 text-center">35 / 90</h2>
+          <h3 id="" class="timeFore px-8 pb-8">12:00 A:M</h3>
+        </div>
+        <div
+          id="hour10"
+          class="border rounded-2xl text-white font-black max-w-40"
+        >
+          <img
+            src="https://cdn.weatherapi.com/weather/64x64/night/143.png"
+            alt=""
+            class="weatherIconFore max-w-full min-w-full h-44 border-b"
+          />
+          <h2 class="tempHour py-3 text-center">35 / 90</h2>
+          <h3 id="" class="timeFore px-8 pb-8">12:00 A:M</h3>
+        </div>
+        <div
+          id="hour11"
+          class="border rounded-2xl text-white font-black max-w-40"
+        >
+          <img
+            src="https://cdn.weatherapi.com/weather/64x64/night/143.png"
+            alt=""
+            class="weatherIconFore max-w-full min-w-full h-44 border-b"
+          />
+          <h2 class="tempHour py-3 text-center">35 / 90</h2>
+          <h3 id="" class="timeFore px-8 pb-8">12:00 A:M</h3>
+        </div>
+        <div
+          id="hour12"
+          class="border rounded-2xl text-white font-black max-w-40"
+        >
+          <img
+            src="https://cdn.weatherapi.com/weather/64x64/night/143.png"
+            alt=""
+            class="weatherIconFore max-w-full min-w-full h-44 border-b"
+          />
+          <h2 class="tempHour py-3 text-center">35 / 90</h2>
+          <h3 id="" class="timeFore px-8 pb-8">12:00 A:M</h3>
+        </div>
+        <div
+          id="hour13"
+          class="border rounded-2xl text-white font-black max-w-40"
+        >
+          <img
+            src="https://cdn.weatherapi.com/weather/64x64/night/143.png"
+            alt=""
+            class="weatherIconFore max-w-full min-w-full h-44 border-b"
+          />
+          <h2 class="tempHour py-3 text-center">35 / 90</h2>
+          <h3 id="" class="timeFore px-8 pb-8">12:00 A:M</h3>
+        </div>
+
+        <div
+          id="hour14"
+          class="border rounded-2xl text-white font-black max-w-40"
+        >
+          <img
+            src="https://cdn.weatherapi.com/weather/64x64/night/143.png"
+            alt=""
+            class="weatherIconFore max-w-full min-w-full h-44 border-b"
+          />
+          <h2 class="tempHour py-3 text-center">35 / 90</h2>
+          <h3 id="" class="timeFore px-8 pb-8">12:00 A:M</h3>
+        </div>
+        <div
+          id="hour15"
+          class="border rounded-2xl text-white font-black max-w-40"
+        >
+          <img
+            src="https://cdn.weatherapi.com/weather/64x64/night/143.png"
+            alt=""
+            class="weatherIconFore max-w-full min-w-full h-44 border-b"
+          />
+          <h2 class="tempHour py-3 text-center">35 / 90</h2>
+          <h3 id="" class="timeFore px-8 pb-8">12:00 A:M</h3>
+        </div>
+        <div
+          id="hour16"
+          class="border rounded-2xl text-white font-black max-w-40"
+        >
+          <img
+            src="https://cdn.weatherapi.com/weather/64x64/night/143.png"
+            alt=""
+            class="weatherIconFore max-w-full min-w-full h-44 border-b"
+          />
+          <h2 class="tempHour py-3 text-center">35 / 90</h2>
+          <h3 id="" class="timeFore px-8 pb-8">12:00 A:M</h3>
+        </div>
+        <div
+          id="hour17"
+          class="border rounded-2xl text-white font-black max-w-40"
+        >
+          <img
+            src="https://cdn.weatherapi.com/weather/64x64/night/143.png"
+            alt=""
+            class="weatherIconFore max-w-full min-w-full h-44 border-b"
+          />
+          <h2 class="tempHour py-3 text-center">35 / 90</h2>
+          <h3 id="" class="timeFore px-8 pb-8">12:00 A:M</h3>
+        </div>
+        <div
+          id="hour18"
+          class="border rounded-2xl text-white font-black max-w-40"
+        >
+          <img
+            src="https://cdn.weatherapi.com/weather/64x64/night/143.png"
+            alt=""
+            class="weatherIconFore max-w-full min-w-full h-44 border-b"
+          />
+          <h2 class="tempHour py-3 text-center">35 / 90</h2>
+          <h3 id="" class="timeFore px-8 pb-8">12:00 A:M</h3>
+        </div>
+        <div
+          id="hour19"
+          class="border rounded-2xl text-white font-black max-w-40"
+        >
+          <img
+            src="https://cdn.weatherapi.com/weather/64x64/night/143.png"
+            alt=""
+            class="weatherIconFore max-w-full min-w-full h-44 border-b"
+          />
+          <h2 class="tempHour py-3 text-center">35 / 90</h2>
+          <h3 id="" class="timeFore px-8 pb-8">12:00 A:M</h3>
+        </div>
+        <div
+          id="hour20"
+          class="border rounded-2xl text-white font-black max-w-40"
+        >
+          <img
+            src="https://cdn.weatherapi.com/weather/64x64/night/143.png"
+            alt=""
+            class="weatherIconFore max-w-full min-w-full h-44 border-b"
+          />
+          <h2 class="tempHour py-3 text-center">35 / 90</h2>
+          <h3 id="" class="timeFore px-8 pb-8">12:00 A:M</h3>
+        </div>
+        <div
+          id="hour21"
+          class="border rounded-2xl text-white font-black max-w-40"
+        >
+          <img
+            src="https://cdn.weatherapi.com/weather/64x64/night/143.png"
+            alt=""
+            class="weatherIconFore max-w-full min-w-full h-44 border-b"
+          />
+          <h2 class="tempHour py-3 text-center">35 / 90</h2>
+          <h3 id="" class="timeFore px-8 pb-8">12:00 A:M</h3>
+        </div>
+        <div
+          id="hour22"
+          class="border rounded-2xl text-white font-black max-w-40"
+        >
+          <img
+            src="https://cdn.weatherapi.com/weather/64x64/night/143.png"
+            alt=""
+            class="weatherIconFore max-w-full min-w-full h-44 border-b"
+          />
+          <h2 class="tempHour py-3 text-center">35 / 90</h2>
+          <h3 id="" class="timeFore px-8 pb-8">12:00 A:M</h3>
+        </div>
+        <div
+          id="hour23"
+          class="border rounded-2xl text-white font-black max-w-40"
+        >
+          <img
+            src="https://cdn.weatherapi.com/weather/64x64/night/143.png"
+            alt=""
+            class="weatherIconFore max-w-full min-w-full h-44 border-b"
+          />
+          <h2 class="tempHour py-3 text-center">35 / 90</h2>
+          <h3 id="" class="timeFore px-8 pb-8">12:00 A:M</h3>
+        </div>
+        <div
+          id="hour24"
+          class="border rounded-2xl text-white font-black max-w-40"
+        >
+          <img
+            src="https://cdn.weatherapi.com/weather/64x64/night/143.png"
+            alt=""
+            class="weatherIconFore max-w-full min-w-full h-44 border-b"
+          />
+          <h2 class="tempHour py-3 text-center">35 / 90</h2>
+          <h3 id="" class="timeFore px-8 pb-8">12:00 A:M</h3>
+        </div>
+      </div>
+    </section>
+    <script src="app.js"></script>
+  </body>
+</html>
