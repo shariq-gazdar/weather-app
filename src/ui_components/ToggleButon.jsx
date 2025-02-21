@@ -21,7 +21,7 @@ const ToggleSwitch = ({ timeBg }) => {
     <div className="flex items-center gap-x-2">
       <span
         className={
-          timeBg ? "text-3xl text-text-color" : "text-3xl text-cards-color"
+          timeBg ? "text-3xl text-cards-color" : "text-3xl text-text-color"
         }
       >
         °C
@@ -38,7 +38,7 @@ const ToggleSwitch = ({ timeBg }) => {
       </label>
       <span
         className={
-          timeBg ? "text-3xl text-text-color" : "text-3xl text-cards-color"
+          timeBg ? "text-3xl text-cards-color" : "text-3xl text-text-color"
         }
       >
         °F

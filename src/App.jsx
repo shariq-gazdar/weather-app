@@ -16,18 +16,19 @@ function App() {
     } else {
       setTimeBg(true);
     }
-  }, [time]);
+    // console.log(timeBg);
+  }, []);
 
   return (
     <BasicContextProvider>
       <div
         className={
           timeBg
-            ? "bg-bg-night h-auto  min-h-screen font-[staatliches] text-text-color"
-            : "bg-bg-day h-auto min-h-screen font-[staatliches] text-text-color"
+            ? "bg-bg-day h-auto  min-h-screen font-[staatliches] text-text-color"
+            : "bg-bg-night h-auto min-h-screen font-[staatliches] text-text-color"
         }
       >
-        <Search time={timeBg} />
+        <Search timeBg={timeBg} />
 
         <CardContainer />
       </div>

@@ -6,7 +6,7 @@ import { useBasicContext } from "../context/BasicContextProvider";
 function CardContainer() {
   const { apiResult, forecastResult } = useBasicContext();
   return (
-    <div className="flex px-10 gap-x-10 flex-wrap lg:flex-nowrap items-center justify-center">
+    <div className="flex px-10 gap-x-10 flex-wrap lg:flex-nowrap items-center justify-center ">
       {apiResult && <DailyCards />}
       {forecastResult && <HourlyCards />}
     </div>

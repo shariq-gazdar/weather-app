@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useBasicContext } from "../context/BasicContextProvider";
-import { motion } from "framer-motion";
+import { motion, time } from "framer-motion";
 import searchIcon from "../assets/search.png";
 
 import ToggleButton from "../ui_components/ToggleButon";
@@ -10,12 +10,13 @@ function Search({ timeBg }) {
   const [search, setSearch] = useState("Karachi");
   useEffect(() => {
     // console.log(apiResult);
+    // console.log(timeBg);
   });
   return (
     <div className="flex justify-between py-10 px-5 flex-wrap">
       <div
         className={
-          timeBg ? "text-text-color text-3xl" : "text-cards-color text-3xl"
+          timeBg ? " text-cards-color text-3xl" : " text-text-color  text-3xl"
         }
       >
         Shariq's App

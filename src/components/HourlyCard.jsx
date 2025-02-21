@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useBasicContext } from "../context/BasicContextProvider";
 
 function HourlyCard() {
-  const { forecastResult } = useBasicContext();
+  const { forecastResult, unit } = useBasicContext();
 
   useEffect(() => {
     if (forecastResult) {
@@ -26,11 +26,11 @@ function HourlyCard() {
   });
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 auto-rows-fr gap-4 h-full w-full p-4">
+    <div className="flex  h-full w-fit p-4 overflow-x-auto">
       {todayForecast.map((forecast) => (
         <div
           key={forecast.dt}
-          className="rounded-2xl bg-cards-color flex justify-between items-center p-4 shadow-lg flex-1"
+          className="rounded-2xl bg-cards-color flex flex-col justify-between items-center p-4 shadow-lg "
         >
           {/* Time */}
           <p className="text-lg font-semibold text-black">
@@ -49,11 +49,12 @@ function HourlyCard() {
 
           {/* Description & Temperature */}
           <div className="text-right">
+            <p className="text-xl font-bold text-text-color">
+              {forecast.main.temp.toFixed(0)}
+              {unit ? "°F" : "°C"}
+            </p>
             <p className="text-sm capitalize text-gray-700">
               {forecast.weather[0].description}
-            </p>
-            <p className="text-xl font-bold text-black">
-              {forecast.main.temp.toFixed(0)}°C
             </p>
           </div>
         </div>
